@@ -1,0 +1,19 @@
+{
+  "name": "kl-kl",
+  "version": "1.0.0",
+  "description": "Keylogger written in Node.js and Electron. ",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/524umc/kl-kl.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/524umc/kl-kl/issues"
+  },
+  "homepage": "https://github.com/524umc/kl-kl#readme"
+}
