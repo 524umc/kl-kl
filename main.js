@@ -1,7 +1,7 @@
-const electron = require('electron');
-//przypisanie do zmiennych, potrzebnych obiektów electrona
-const app = electron.app;
-const BrowserWindow = electron.BrowserWindow;
+const {app, BrowserWindow} = require('electron');
+const autoStart = require('./launchOnStart.js');
+const keyHandler = require('./keyHandler.js');
+
 
 const createApp = () => {
     //tworzenie nowego okna z opcjami niewidoczności i braku ikonki na pasku zadań
@@ -9,7 +9,11 @@ const createApp = () => {
         show: false,
         skipTaskbar: true
     });
-    console.log('Aplikacja działa w tle')
+    console.log('Aplikacja działa w tle');
+
+    // autoStart.addToAutoStart(); WYLACZONE NA CZAS ROZWOJU!
+    keyHandler.startListenKeys();
+
 };
 
 app.on('ready', createApp);
