@@ -1,5 +1,5 @@
 const gkm = require('gkm');
-const checker = require('./keys/check.js');
+const checker = require('./keys/checker.js');
 
 module.exports = {
     
