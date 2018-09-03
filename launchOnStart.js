@@ -1,0 +1,1 @@
+const autoLaunch = require('auto-launch');
