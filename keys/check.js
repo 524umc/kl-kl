@@ -1,7 +1,11 @@
 const state = require('./state.js');
 
-const stateArray = []; //tablica z wartosci typu CapsLock
-const keysArray = []; //tablica z reszta znakow
+//tablica z wartosci typu CapsLock
+const stateArray = [
+    "Tab", "Caps Lock", "Left Shift",
+    "Left Alt", "Right Control", "Right Shift",
+    "Enter"
+];
 
 check = data => {
     console.log(`e: ${data.event}: ${data.key}`);
