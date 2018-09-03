@@ -8,7 +8,11 @@ module.exports = {
      */
     startListenKeys() {
         gkm.events.on('key.released', function(key) {
-            checker.check(key);
+            const data = {
+                event: this.event,
+                key: key
+            };
+            checker.check(data);
         });
     }
 };
