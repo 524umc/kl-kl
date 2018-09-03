@@ -3,9 +3,9 @@ const rules = require('./rules.js');
 
 //tablica z wartosci typu CapsLock
 const stateArray = [
-    "Tab", "Caps Lock", "Left Shift",
-    "Left Alt", "Right Control", "Right Shift",
-    "Enter"
+    "Tab", "Caps Lock", "Enter",
+    "Left Shift", "Left Alt", "Left Control",
+    "Right Shift", "Right Alt",  "Right Control"
 ];
 
 
@@ -18,7 +18,7 @@ const check = data =>{
             state.changeState(data)
         }else {
             //Jeśli jest to normalny znak, wyślij go do reguł
-            rules.goThroughRules(data.key);
+            // rules.goThroughRules(data.key);
         }
     })
 };
