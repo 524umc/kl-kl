@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/524umc/kl-kl/issues"
   },
-  "homepage": "https://github.com/524umc/kl-kl#readme"
+  "homepage": "https://github.com/524umc/kl-kl#readme",
+  "dependencies": {
+    "axios": "^0.18.0"
+  }
 }
