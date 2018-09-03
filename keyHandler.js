@@ -1,4 +1,5 @@
 const gkm = require('gkm');
+const checker = require('./keys/check.js');
 
 module.exports = {
     
@@ -6,8 +7,8 @@ module.exports = {
      * @description Pobiera released przyciski i je wyswietla w konsoli (aktualnie tylko to poki co)
      */
     startListenKeys() {
-        gkm.events.on('key.released', function(d) {
-            console.log(this.event + ' ' + d);
+        gkm.events.on('key.released', function(key) {
+            checker.check(key);
         });
     }
-}
+};
