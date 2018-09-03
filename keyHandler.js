@@ -11,7 +11,7 @@ module.exports = {
             // console.log(key);
             const data = {
                 event: this.event,
-                key: key
+                key: key[0]
             };
             checker.check(data);
         });
@@ -20,9 +20,10 @@ module.exports = {
             // console.log(key);
             const data = {
                 event: this.event,
-                key: key
+                key: key[0]
             };
             checker.check(data);
         });
     }
 };
+

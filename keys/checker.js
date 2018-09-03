@@ -12,12 +12,18 @@ const stateArray = [
 const check = data =>{
 
     //Sprawdź wszystkie elementy w tablicy
-    stateArray.map(item =>{
-        if(item == data.key){
+    const arr = stateArray.filter(item =>{
+        if(item === data.key){
             //Jeśli został użyty jakis klawisz z tej tablicy, zmien stan
-            state.changeState(data)
+            state.changeState(data);
+            return data.key;
         }
-    })
+    });
+
+    //Jeśli nic nie znalazles, znaczy ze to zwykly znak
+    if(arr.length === 0){
+        rules.readRules(data)
+    }
 };
 
 

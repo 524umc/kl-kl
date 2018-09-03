@@ -4,62 +4,66 @@ let lShift = false;
 let rShift = false;
 let lAlt = false;
 let rAlt = false;
-let lCtrl = false;
-let rCtrl = false;
-
 
 
 // Stany Wyjściowe //
 let upperCase = false;
-let alt = true;
+let alt = false;
 
 /*
 TODO: Stany wyjściowe będą true/false na podstawie stanów klawiszy, tu będzie potrzebne troche kombinacji.
 Potem stany wyjściowe są wysyłane do rules.js
 */
 
-const changeState = stateData => {
-    if(stateData.event == "key.pressed") {
-        switch (""+stateData.key) {
+const changeState = stateData =>{
+    if(stateData.event === "key.pressed"){
+        switch(stateData.key){
             case "Left Shift":
-            lShift = true;
+                lShift = true;
                 break;
             case "Left Alt":
-            lAlt = true;
+                lAlt = true;
                 break;
             case "Right Shift":
-            rShift = true;
+                rShift = true;
                 break;
             case "Right Alt":
-            rAlt = true;
+                rAlt = true;
                 break;
         }
     }
-    else if(stateData.event == "key.released") {
-        switch (""+stateData.key) {
+    else if(stateData.event === "key.released"){
+        switch(stateData.key){
             case "Left Shift":
-            lShift = false;
+                lShift = false;
                 break;
             case "Left Alt":
-            lAlt = false;
+                lAlt = false;
                 break;
             case "Right Shift":
-            rShift = false;
+                rShift = false;
                 break;
             case "Right Alt":
-            rAlt = false;
+                rAlt = false;
                 break;
-                case "Caps Lock":
-            capsLock = !capsLock;
+            case "Caps Lock":
+                capsLock = !capsLock;
                 break;
         }
     }
 
-    //Testowe wysietlanie eventu, key'a i lShifta
-    // console.log(`e: ${stateData.event}`);
-    // console.log(`k: ${stateData.key}`);
-    // console.log(`lShift: ${lShift}`);
+    if(lShift || rShift && !capsLock){
+        upperCase = true;
+    }
+    else if(capsLock && !lShift && !rShift){
+        upperCase = true;
+    }
+    else{
+        upperCase = false;
+    }
 };
+
+
 
 module.exports.changeState = changeState;
 module.exports.upperCase = upperCase;
