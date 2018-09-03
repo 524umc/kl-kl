@@ -4,13 +4,13 @@
   "description": "Keylogger written in Node.js and Electron. ",
   "main": "main.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "electron ."
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/524umc/kl-kl.git"
   },
-  "author": "ADAM FULARA",
+  "author": "",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/524umc/kl-kl/issues"
@@ -18,5 +18,8 @@
   "homepage": "https://github.com/524umc/kl-kl#readme",
   "dependencies": {
     "axios": "^0.18.0"
+  },
+  "devDependencies": {
+    "electron": "^2.0.8"
   }
 }

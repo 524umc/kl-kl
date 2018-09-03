@@ -1,2 +1,2 @@
 # kl-kl
-Fajny program
+npm start - uruchomienie
