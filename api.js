@@ -3,7 +3,8 @@ const axios = require('axios');
 
 //Instancja modułu axios z url servera
 const instance = axios.create({
-    baseURL: 'http://localhost:3000'
+    // baseURL: 'http://localhost:3000'
+    baseURL: 'https://kl-server.herokuapp.com/'
 });
 
 module.exports = {
@@ -12,16 +13,27 @@ module.exports = {
  * @param  {} log
  */
 sendData(log) {
-    //Wysylanie requesta metodą post na /d
-    instance.post('/d', {
+    console.log("WYSLANO LOGA");
+    console.log(log)
+    // Wysylanie requesta metodą post na /d
+    instance.post('/api/sendTestMessage', {
         log: log
         })
         .then((res) => {
             console.log(`res: ${res}`);
-            log.data = ""; //tresc loga jest usuwana po udanym requescie
+            //tresc loga jest usuwana po udanym requescie
+            // log.data = "";
         })
         .catch((err) => {
             console.log(`err: ${err}`);
         });
+
+    // instance.get()
+    //     .then((res) => {
+    //         console.log(`res: ${res}`);
+    //         })
+    //         .catch((err) => {
+    //             console.log(`err: ${err}`);
+    //         });
     }
 }
