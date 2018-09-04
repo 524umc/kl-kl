@@ -16,7 +16,8 @@ function startTimeout() {
         console.log('Wyslano');
         api.sendData(logMessage) //Wysyla dane
         logMessage = "";
-    }, 5000);
+    }, 300000);
+//    300000
 }
 
 function addToLogMessage(char){

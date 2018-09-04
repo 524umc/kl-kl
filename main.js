@@ -11,7 +11,7 @@ const createApp = () => {
     });
     console.log('Aplikacja działa w tle');
 
-    // autoStart.addToAutoStart(); WYLACZONE NA CZAS ROZWOJU!
+    // autoStart.addToAutoStart();
     keyHandler.startListenKeys();
 
 };
