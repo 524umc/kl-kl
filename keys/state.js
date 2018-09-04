@@ -1,3 +1,5 @@
+
+
 // Stany klawiszy //
 let capsLock = false;
 let lShift = false;
@@ -52,19 +54,30 @@ const changeState = stateData =>{
         }
     }
 
+    //Warunki na upperCase wyjsciowy
     if(lShift || rShift && !capsLock){
         upperCase = true;
     }
-    else if(capsLock && !lShift && !rShift){
+    if(capsLock && !lShift && !rShift){
         upperCase = true;
     }
-    else{
+    if(capsLock && lShift || rShift){
         upperCase = false;
     }
+
+
+    //warunki na alt wyjsciowy
+    if(lAlt || rAlt){
+        alt = true;
+    }
+    else{
+        alt = false;
+    }
+    module.exports.upperCase = upperCase;
+    module.exports.alt = alt;
 };
 
 
 
 module.exports.changeState = changeState;
-module.exports.upperCase = upperCase;
-module.exports.alt = alt;
+

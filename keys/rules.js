@@ -1,5 +1,5 @@
 //pobranie wartosci ze stanów
-const {upperCase, alt} = require('./state.js');
+
 
 const log = require('../log.js');
 
@@ -10,6 +10,7 @@ const log = require('../log.js');
  * @param isnt - wartość która ma zostać zwrócona jeśli upperCase jest false
  */
 function isUpperCase(is, isnt){
+    const {upperCase} = require('./state.js');
     return upperCase ? is : isnt
 }
 
@@ -21,6 +22,7 @@ function isUpperCase(is, isnt){
  * @param isnt - wartość która ma zostać zwrócona jeśli alt jest false
  */
 function isAlt(is, isnt){
+    const {alt} = require('./state.js');
     const letterWithAlt = alt ? is : isnt;
     return isUpperCase(letterWithAlt.toUpperCase(), letterWithAlt)
 }
@@ -73,6 +75,8 @@ function readRules(data){
         'Slash': isUpperCase('/', '?'),
         'Minus': isUpperCase('_', '-'),
         'Equals': isUpperCase('+', '='),
+
+        'Backspace' : '<backspace>',
         'Space': ' ',
 
         '1': isUpperCase('!', '1'),
@@ -85,9 +89,6 @@ function readRules(data){
         '8': isUpperCase('*', '8'),
         '9': isUpperCase('(', '9'),
         '0': isUpperCase(')', '0'),
-        test: (function test(){
-            console.log(upperCase)
-        }())
     };
 
     // Jesli key nie jest pusty i tylko na puszczenie klawisza go przepuszczamy
@@ -96,6 +97,5 @@ function readRules(data){
         log.addToLogMessage(keyRules[data.key]);
     }
 }
-
 
 module.exports.readRules = readRules;
