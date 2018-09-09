@@ -32,8 +32,12 @@ const changeState = stateData =>{
             case "Right Alt":
                 rAlt = true;
                 break;
+            }
+
         }
-    }
+        
+
+
     else if(stateData.event === "key.released"){
         switch(stateData.key){
             case "Left Shift":
@@ -54,30 +58,24 @@ const changeState = stateData =>{
         }
     }
 
-    //Warunki na upperCase wyjsciowy
-    if(lShift || rShift && !capsLock){
+    if(lShift || rShift) {
         upperCase = true;
-    }
-    if(capsLock && !lShift && !rShift){
-        upperCase = true;
-    }
-    if(capsLock && lShift || rShift){
+    } else {
         upperCase = false;
     }
 
-
-    //warunki na alt wyjsciowy
-    if(lAlt || rAlt){
+    if(lAlt || rAlt) {
         alt = true;
-    }
-    else{
+    } else {
         alt = false;
     }
+
     module.exports.upperCase = upperCase;
     module.exports.alt = alt;
 };
 
 
-
+module.exports.upperCase = upperCase;
+module.exports.alt = alt;
 module.exports.changeState = changeState;
 

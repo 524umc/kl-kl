@@ -3,7 +3,7 @@ const rules = require('./rules.js');
 
 //tablica z wartosci typu CapsLock
 const stateArray = [
-    "Tab", "Caps Lock", "Enter",
+    "Tab", "Enter",
     "Left Shift", "Left Alt", "Left Control",
     "Right Shift", "Right Alt",  "Right Control"
 ];

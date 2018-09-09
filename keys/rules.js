@@ -2,6 +2,14 @@
 
 
 const log = require('../log.js');
+// let alt = false;
+// let upperCase = false;
+
+// function returnUpperCase() {
+//     const {upperCase: rawUpperCase} = require('./state.js');
+//     console.log(rawUpperCase);
+//     return rawUpperCase;
+// }
 
 /**
  *
@@ -38,6 +46,12 @@ function isAlt(is, isnt){
 // TODO: Kurka wodna, nie działa
 function readRules(data){
 
+    // returnUpperCase();
+    // upperCase = returnUpperCase();
+    // alt = returnAlt();
+
+    console.log(data);
+
     const keyRules = {
         'A': isAlt('ą', 'a'),
         'X': isAlt('ź', 'x'),
@@ -60,10 +74,12 @@ function readRules(data){
         'M': isUpperCase('M', 'm'),
         'P': isUpperCase('P', 'p'),
         'R': isUpperCase('R', 'r'),
-        'T': isUpperCase('t', 't'),
+        'T': isUpperCase('T', 't'),
         'U': isUpperCase('U', 'u'),
         'W': isUpperCase('W', 'w'),
         'Y': isUpperCase('Y', 'y'),
+        'Q': isUpperCase('Q', 'q'),
+        'V': isUpperCase('V', 'v'),
 
         'Period': isUpperCase('>', '.'),
         'Comma': isUpperCase('<', ','),
@@ -72,12 +88,55 @@ function readRules(data){
         'Back Slash': isUpperCase('|', '\\'),
         'Semicolon': isUpperCase(':', ';'),
         'Quote': isUpperCase('"', '\''),
-        'Slash': isUpperCase('/', '?'),
+        'Slash': isUpperCase('?', '/'),
         'Minus': isUpperCase('_', '-'),
         'Equals': isUpperCase('+', '='),
 
         'Backspace' : '<backspace>',
         'Space': ' ',
+        'Up': '',
+        'Right': '',
+        'Down': '',
+        'Left': '',
+        'F1':'[F1]',
+        'F2':'[F2]',
+        'F3':'[F3]',
+        'F4':'[F4]',
+        'F5':'[F5]',
+        'F6':'[F6]',
+        'F7':'[F7]',
+        'F8':'[F8]',
+        'F9':'[F9]',
+        'F10':'[F10]',
+        'F11':'[F11]',
+        'F12':'[F12]',
+        'Insert':'[ins]',
+        'Delete':'[del]',
+        'End':'[end]',
+        'Page Down':'[pUp]',
+        'Page Up':'[pDown]',
+        'Home':'[home]',
+        'Num Lock': '[numLk]',
+        'Undefined': '',
+        'Print Screen': '[pSc]',
+        'Scroll Lock': '[sLk]',
+        'Pause': '[pause]',
+        'NumPad Divide': '/',
+        'NumPad Multiply': '*',
+        'NumPad Subtract': '-',
+        'NumPad Add': '+',
+        'NumPad Separator': '.',
+        'NumPad 0': '0',
+        'NumPad 1': '1',
+        'NumPad 2': '2',
+        'NumPad 3': '3',
+        'NumPad 4': '4',
+        'NumPad 5': '5',
+        'NumPad 6': '6',
+        'NumPad 7': '7',
+        'NumPad 8': '8',
+        'NumPad 9': '9',
+        'Caps Lock': '[CL]',
 
         '1': isUpperCase('!', '1'),
         '2': isUpperCase('@', '2'),
@@ -92,7 +151,8 @@ function readRules(data){
     };
 
     // Jesli key nie jest pusty i tylko na puszczenie klawisza go przepuszczamy
-    if(data.event === "key.released"){
+    // if(data.event === "key.released"){ //Zmienilem tutaj z released na pressed, bo shift i alt szybciej reagowaly od znakow
+    if(data.event === "key.pressed"){
         // Dodajemy do loga
         log.addToLogMessage(keyRules[data.key]);
     }

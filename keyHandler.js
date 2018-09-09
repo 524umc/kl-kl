@@ -4,7 +4,7 @@ const checker = require('./keys/checker.js');
 module.exports = {
     
     /**
-     * @description Pobiera released przyciski i je wyswietla w konsoli (aktualnie tylko to poki co)
+     * @description Pobiera released przyciski i je wyswietla w konsoli
      */
     startListenKeys() {
         gkm.events.on('key.pressed', function(key) {
