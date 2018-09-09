@@ -50,8 +50,6 @@ function readRules(data){
     // upperCase = returnUpperCase();
     // alt = returnAlt();
 
-    console.log(data);
-
     const keyRules = {
         'A': isAlt('ą', 'a'),
         'X': isAlt('ź', 'x'),
